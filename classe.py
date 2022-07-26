@@ -17,10 +17,10 @@ class Pesquisa():
     # Receber a autorização ou não para a pessoa ser entrevistada
     def querParticipar(self):
 
-        aceitar = input("Quer participar desta pesquisa rápida? S/N ")
+        aceitar = input("Quer participar desta pesquisa rápida? S/N : ")
 
         while aceitar.strip().upper() not in ["S", "N"]:
-            aceitar = input("Input invalido, quer participar desta pesquisa rápida? S/N ")
+            aceitar = input("Input invalido, quer participar desta pesquisa rápida? S/N : ")
 
         return True if aceitar.strip().upper() == "S" else False
 
@@ -34,10 +34,13 @@ class Pesquisa():
 
             if idade > 0:
                 nome = str(input("Informe o seu o nome: "))
+
+                while nome == "":
+                    nome = str(input("O campo nome não pode ser vazio, informe o seu o nome: "))
                 genero = self.getGenero()
 
             elif idade == 0:
-                print("Fim da pesquisa.")
+                print("Fim ! \nObrigado por participar da nossa pesquisa! ")
                 break
 
             for i in range(4):
